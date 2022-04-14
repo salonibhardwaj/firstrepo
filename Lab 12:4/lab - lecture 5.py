@@ -3,14 +3,15 @@
 
 a = 10
 
+
 def first_func(b=20):
     c = 30
+    def second_func(d=40):
+        e = 50
+        return a + b + c + d + e
     value = second_func()
     return value
 
-def second_func(d=40):
-    e = 50
-    return a + b + c + d + e
 
 result = first_func()
 
@@ -25,3 +26,10 @@ start_dict = {'noah': '2/23/1999',
 #turn it into {'Noah': datetime(1999, 2, 23),
 #              'Sarah':datetime(2001, 9, 1),
 #              'Zach': datetime(2005, 8, 8)}
+
+def key_func(k):
+    return k.capitalize()
+def val_func(v):
+    return datetime.datetime.strptime(v, "%m/%d/%Y").date()     
+        
+answer = {key_func(k):val_func(v) for k, v in start_dict.items()}
